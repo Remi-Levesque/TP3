@@ -120,6 +120,7 @@ int fromage(){
     		continue;
     	}
     	}
+    return 0;
 
     //biblio::reference une_reference(annee, auteur, titre, issn);
     //cout<<une_reference.reqReferenceFormate()<<endl;
