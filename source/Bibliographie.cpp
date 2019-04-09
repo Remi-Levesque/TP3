@@ -24,6 +24,14 @@ biblio::Bibliographie::Bibliographie(std::string p_nomBibliographie):m_nomBiblio
 {
 }
 
+// à faire
+biblio::Bibliographie::~Bibliographie(){
+}
+
+std::string biblio::Bibliographie::reqNomBiblio() const{
+	return m_nomBiblio;
+}
+
 std::string biblio::Bibliographie::reqBibliographieFormate() const
 {
 	using namespace std;

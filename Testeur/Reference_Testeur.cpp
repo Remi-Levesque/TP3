@@ -43,7 +43,9 @@ class UneReference : public ::testing::Test
 	Reference_t reference_1;
 };
 
-
+/**
+ * on teste le constructeur, ensuite on pourra tester les fonctions avec le fixture
+ */
 
 TEST(reference, ConstructeurParams){
 	Reference_t reference_a_tester(1999, "Homayoon Beigi", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");

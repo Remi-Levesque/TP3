@@ -17,8 +17,7 @@ using namespace std;
 using namespace biblio;
 using namespace util;
 
-
-int main(){
+int fromage(){
     string auteur;
     string titre;
     string issn;

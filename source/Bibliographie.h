@@ -18,12 +18,13 @@ namespace biblio{
 class Bibliographie
 {
 private:
-	bool ReferenceEstDejaPresente(const std::string& p_identifiant) const;
 	std::vector<reference*> m_vReferences;
 	std::string m_nomBiblio;
 public:
+	bool ReferenceEstDejaPresente(const std::string& p_identifiant) const;
 	Bibliographie(std::string p_nomBibliographie);
 	void ajouterReference (const reference& p_nouvelleReference);
+	std::string reqNomBiblio() const;
 	~Bibliographie();
 	std::string reqBibliographieFormate() const;
 };

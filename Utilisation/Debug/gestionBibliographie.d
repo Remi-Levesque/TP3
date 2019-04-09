@@ -1,0 +1,1 @@
+gestionBibliographie.o: ../gestionBibliographie.cpp
