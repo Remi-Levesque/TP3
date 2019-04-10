@@ -22,7 +22,7 @@ namespace util
 	/**
 	 *
 	 */
-    bool NOM(std::string& p_nom){
+    bool NOM(const std::string& p_nom){
         int length = int(p_nom.length());
         int check = 0;
         for(int i=0;i<length;i++){
@@ -39,7 +39,7 @@ namespace util
         return false;
     }
 
-    bool ISSN(std::string& p_issn){
+    bool ISSN(const std::string& p_issn){
         int check = 0;
         int somme = 0;
         int facteur = 8;
@@ -90,7 +90,7 @@ namespace util
         return false;
     }
 
-    bool ISBN(std::string& p_isbn){
+    bool ISBN(const std::string& p_isbn){
         // ISBN-10;
         int somme = 0;
         int length = int(p_isbn.length());

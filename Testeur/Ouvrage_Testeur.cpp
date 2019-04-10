@@ -13,7 +13,7 @@
 using namespace biblio;
 
 TEST(Ouvrage, ConstructeurParams){
-	Ouvrage ouvrage_a_tester(1999, "Homayoon Beigi", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "Springer");
+	Ouvrage ouvrage_a_tester(1999,"Fundamentals of Speaker Recognition", "Homayoon Beigi", "ISBN 978-3-16-148410-0", "New York", "Springer");
 	EXPECT_EQ(1999, ouvrage_a_tester.reqAnnee());
 	EXPECT_EQ("Homayoon Beigi", ouvrage_a_tester.reqAuteurs());
 	EXPECT_EQ("Fundamentals of Speaker Recognition", ouvrage_a_tester.reqTitre());
@@ -24,23 +24,23 @@ TEST(Ouvrage, ConstructeurParams){
 }
 
 TEST(Ouvrage, villeValide){
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", " ", "Springer");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "9 New York", "Springer");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York 9", "Springer");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "", "Springer");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999,"Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "", "Springer");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "9 New York", "Springer");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "New York 9", "Springer");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "", "Springer");, PreconditionException);
 }
 
 TEST(Ouvrage, editeurValide){
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", " ");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "direct 9");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "");, PreconditionException);
-	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Benjie", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "9 direct");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie", "ISBN 978-3-16-148410-0", "New York", "");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie", "ISBN 978-3-16-148410-0", "New York", "direct 9");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie", "ISBN 978-3-16-148410-0", "New York", "");, PreconditionException);
+	ASSERT_THROW(Ouvrage ouvrage_test(1999, "Fundamentals of Speaker Recognition", "Benjie", "ISBN 978-3-16-148410-0", "New York", "9 direct");, PreconditionException);
 }
 
 class OuvrageTesteur: public ::testing::Test
 {
 public:
-	OuvrageTesteur():t_ouvrage(1999, "Homayoon Beigi", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "Springer"){};
+	OuvrageTesteur():t_ouvrage(1999, "Fundamentals of Speaker Recognition", "Homayoon Beigi", "ISBN 978-3-16-148410-0", "New York", "Springer"){};
 	Ouvrage t_ouvrage;
 
 };
@@ -54,7 +54,7 @@ TEST_F(OuvrageTesteur, reqEditeur){
 }
 
 TEST_F(OuvrageTesteur, reqReferenceFormate){
-	EXPECT_EQ("Homayoon Beigi. Fundamentals of Speaker Recognition. New York : Springer, 2011. ISBN 978-0-387-77591-3.",
+	EXPECT_EQ("Homayoon Beigi. Fundamentals of Speaker Recognition. New York: Springer, 1999. ISBN 978-3-16-148410-0.",
 			t_ouvrage.reqReferenceFormate());
 }
 

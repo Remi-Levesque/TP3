@@ -22,7 +22,7 @@ TEST(Journal, constructeurAvecParams){
 	EXPECT_EQ("auteurs", journal_a_tester.reqAuteurs());
 	EXPECT_EQ("titre", journal_a_tester.reqTitre());
 	EXPECT_EQ("ISSN 1937-4771", journal_a_tester.reqIdentifiant());
-	EXPECT_EQ("ISSN 1937-4771", journal_a_tester.reqNom());
+	EXPECT_EQ("nom", journal_a_tester.reqNom());
 	EXPECT_EQ(20, journal_a_tester.reqVolume());
 	EXPECT_EQ(1, journal_a_tester.reqNumero());
 	EXPECT_EQ(17, journal_a_tester.reqPage());
@@ -75,7 +75,7 @@ TEST_F(JournalTesteur, reqNom){
 }
 
 TEST_F(JournalTesteur, reqVolume){
-	EXPECT_EQ(20, t_journal.reqVolume());
+	EXPECT_EQ(10, t_journal.reqVolume());
 }
 
 TEST_F(JournalTesteur, reqNumero){

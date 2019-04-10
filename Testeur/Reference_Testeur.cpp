@@ -56,9 +56,8 @@ TEST(reference, ConstructeurParams){
 }
 
 TEST(reference, NomInvalide){
-	ASSERT_THROW(Reference_t reference_test(1999, " ", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");, PreconditionException);
+	ASSERT_THROW(Reference_t reference_test(1999, "", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");, PreconditionException);
 	ASSERT_THROW(Reference_t reference_test(1999, "benjie-xd", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");, PreconditionException);
-	ASSERT_THROW(Reference_t reference_test(1999, " adslkj", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");, PreconditionException);
 	ASSERT_THROW(Reference_t reference_test(1999, "oofers 987", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0");, PreconditionException);
 }
 

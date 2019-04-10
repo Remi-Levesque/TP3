@@ -10,6 +10,7 @@
 #include "classe_reference.h"
 #include "Ouvrage.h"
 #include "Journal.h"
+#include "Bibliographie.h"
 #include <string>
 #include <limits>
 using namespace std;
@@ -82,10 +83,13 @@ Ouvrage BoucleCreationOuvrage(){
 		if(p_annee>0 && p_annee <= 2019){
 			cout<<"annee valide"<<endl;
 			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			break;
 		}
-		cout<<"annee invalide"<<endl;
 		cin.clear();
+		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		cout<<"annee invalide"<<endl;
 	}
 
 	while(true){
@@ -150,6 +154,9 @@ Journal BoucleCreationJournal(){
 			cout<<"volume valide"<<endl;
 			break;
 		}
+		cin.clear();
+		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		cout<<"volume invalide"<<endl;
 	}
 
@@ -160,6 +167,9 @@ Journal BoucleCreationJournal(){
 			cout<<"numero valide"<<endl;
 			break;
 		}
+		cin.clear();
+		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		cout<<"numero invalide"<<endl;
 	}
 
@@ -170,6 +180,9 @@ Journal BoucleCreationJournal(){
 			cout<<"page valide"<<endl;
 			break;
 		}
+		cin.clear();
+		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		cout<<"page invalide"<<endl;
 	}
 
@@ -178,8 +191,12 @@ Journal BoucleCreationJournal(){
 		cin>>p_annee;
 		if(p_annee>0 && p_annee<=2019){
 			cout<<"année valide"<<endl;
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			break;
 		}
+		cin.clear();
+		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		cout<<"année invalide"<<endl;
 	}
 
@@ -198,13 +215,15 @@ Journal BoucleCreationJournal(){
 }
 
 int main() {
+	Bibliographie biblio("Utilisation");
 	cout<<"création de la première référence (Ouvrage)"<<endl;
-	BoucleCreationOuvrage();
+	biblio.ajouterReference(BoucleCreationOuvrage());
 	cout<<"création de la deuxième référence (Ouvrage)"<<endl;
-	BoucleCreationOuvrage();
+	biblio.ajouterReference(BoucleCreationOuvrage());
 	cout<<"création de la troisième référence (Journal)"<<endl;
-	BoucleCreationJournal();
+	biblio.ajouterReference(BoucleCreationJournal());
 	cout<<"création de la quatrième référence (Journal)"<<endl;
-	BoucleCreationJournal();
+	biblio.ajouterReference(BoucleCreationJournal());
+	cout<<biblio.reqBibliographieFormate();
 	return 0;
 }

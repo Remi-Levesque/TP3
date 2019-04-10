@@ -18,9 +18,9 @@
 
 namespace util
 {
-    bool NOM(std::string&);
-    bool ISSN(std::string&);
-    bool ISBN(std::string&);
+    bool NOM(const std::string&);
+    bool ISSN(const std::string&);
+    bool ISBN(const std::string&);
 }
 
 namespace biblio {

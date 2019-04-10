@@ -13,12 +13,13 @@
 #include <sstream>
 #include <vector>
 #include "classe_reference.h"
+#include "ContratException.h"
 
 namespace biblio{
 class Bibliographie
 {
 private:
-	std::vector<reference*> m_vReferences;
+
 	std::string m_nomBiblio;
 public:
 	bool ReferenceEstDejaPresente(const std::string& p_identifiant) const;
@@ -27,6 +28,7 @@ public:
 	std::string reqNomBiblio() const;
 	~Bibliographie();
 	std::string reqBibliographieFormate() const;
+	std::vector<reference*> m_vReferences;
 };
 
 }

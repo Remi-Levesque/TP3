@@ -25,7 +25,7 @@ public:
 };
 
 TEST_F(BibliographieTesteur, reqNomBiblio){
-	EXPECT_EQ("nom de test", t_biblio.reqNomBiblio());
+	EXPECT_EQ((const std::string)"nom de test", t_biblio.reqNomBiblio());
 }
 
 /**
@@ -35,9 +35,10 @@ TEST_F(BibliographieTesteur, reqNomBiblio){
 TEST_F(BibliographieTesteur, reqBibliographieFormate){
 	Ouvrage t_ouvrage(1999, "Homayoon Beigi", "Fundamentals of Speaker Recognition", "ISBN 978-3-16-148410-0", "New York", "Springer");
 	std::ostringstream os;
+	t_biblio.ajouterReference(t_ouvrage);
 	os <<"Bibliographie"<<"\n";
 	os<<"==============================="<<"\n";
-	os<<"["<<1<<"]"<< t_ouvrage.reqReferenceFormate()<<std::endl;
+	os<<"["<<1<<"]"<<" "<<t_ouvrage.reqReferenceFormate()<<std::endl;
 	EXPECT_EQ(os.str(), t_biblio.reqBibliographieFormate());
 }
 

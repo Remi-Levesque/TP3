@@ -39,6 +39,12 @@ using namespace biblio;
 			m_annee(p_annee), m_auteurs(p_auteur), m_titre(p_titre), m_identifiant(p_identifiant){
 		PRECONDITION(m_annee>=0);
 		PRECONDITION(m_annee<=2019);
+		PRECONDITION(!(m_titre.empty()));
+		PRECONDITION(!(m_auteurs.empty()));
+		PRECONDITION(!(m_identifiant.empty()));
+		PRECONDITION(util::NOM(m_titre)==true);
+		PRECONDITION(util::NOM(m_auteurs)==true);
+		PRECONDITION(util::ISSN(m_identifiant)==true || util::ISBN(m_identifiant)==true);
 		POSTCONDITION(m_annee == p_annee);
 		POSTCONDITION(m_auteurs == p_auteur);
 		POSTCONDITION(m_identifiant == p_identifiant);
