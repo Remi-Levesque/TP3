@@ -56,7 +56,7 @@ biblio::Ouvrage::Ouvrage(int p_annee,const std::string& p_titre,const std::strin
 	PRECONDITION(p_annee<=2019);
 	PRECONDITION(util::NOM(p_titre)==true);
 	PRECONDITION(util::NOM(p_auteurs)==true);
-	PRECONDITION(util::ISSN(p_identifiant)==true || util::ISBN(m_identifiant)==true);
+	PRECONDITION(util::ISSN(p_identifiant)==true or util::ISBN(p_identifiant)==true);
 	PRECONDITION(util::NOM(p_ville)==true);
 	PRECONDITION(util::NOM(p_editeur)==true);
 	PRECONDITION(!(p_ville.empty()));

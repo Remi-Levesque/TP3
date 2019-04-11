@@ -21,7 +21,7 @@
 void biblio::Bibliographie::ajouterReference(const reference& p_nouvelleReference){
 	for(unsigned int i=0;i<m_vReferences.size();i++){
 		PRECONDITION(p_nouvelleReference.reqIdentifiant() != m_vReferences[i]->reqIdentifiant());
-		PRECONDITION(util::NOM(p_nouvelleReference.reqIdentifiant())==true);
+		PRECONDITION(util::ISSN(p_nouvelleReference.reqIdentifiant())==true or util::ISBN(p_nouvelleReference.reqIdentifiant())==true);
 	}
 	m_vReferences.push_back(p_nouvelleReference.clone());
 }

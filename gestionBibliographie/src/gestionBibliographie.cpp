@@ -216,19 +216,27 @@ Journal BoucleCreationJournal(){
 
 int main() {
 	Bibliographie biblio("Utilisation");
-	//Ouvrage ouvrage(1999,"Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "hey", "Springer");
-	//biblio.ajouterReference(ouvrage);
+	//Ouvrage ouvrage1(1999,"Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "hey", "Springer");
+	//Ouvrage ouvrage2(1999,"Fundamentals of Speaker Recognition", "Bejie",  "ISBN 978-1-60309-029-2", "hey", "Springer");
+	//Journal ouvrage3(2009,"A survey of source code management tools for programming courses", "Hart", "ISSN 1937-4771", "Journal of Computing Sciences in Colleges", 24, 6, 113);
+	//Journal ouvrage4(2009,"A survey of source code management tools for programming courses", "Hart", "ISSN 0098-7484", "Journal of Computing Sciences in Colleges", 24, 6, 113);
+
+	//biblio.ajouterReference(ouvrage1);
+	//biblio.ajouterReference(ouvrage2);
+	//biblio.ajouterReference(ouvrage3);
+	//biblio.ajouterReference(ouvrage4);
+
 	//cout<<biblio.reqBibliographieFormate();
 	//biblio.~Bibliographie();
-	//cout<<"direct"<<endl;
+
 	//cout<<biblio.reqBibliographieFormate();
-	cout<<"création de la première référence (Ouvrage)"<<endl;
+	cout<<"création de la première référence (Ouvrage)"<<endl<<endl;;
 	biblio.ajouterReference(BoucleCreationOuvrage());
-	cout<<"création de la deuxième référence (Ouvrage)"<<endl;
+	cout<<"création de la deuxième référence (Ouvrage)"<<endl<<endl;;
 	biblio.ajouterReference(BoucleCreationOuvrage());
-	cout<<"création de la troisième référence (Journal)"<<endl;
+	cout<<"création de la troisième référence (Journal)"<<endl<<endl;
 	biblio.ajouterReference(BoucleCreationJournal());
-	cout<<"création de la quatrième référence (Journal)"<<endl;
+	cout<<"création de la quatrième référence (Journal)"<<endl<<endl;
 	biblio.ajouterReference(BoucleCreationJournal());
 	cout<<biblio.reqBibliographieFormate();
 	return 0;
