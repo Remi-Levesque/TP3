@@ -4,6 +4,11 @@
  *  Created on: 2019-03-30
  *      Author: etudiant
  */
+/**
+ * \file Ouvrage.h
+ * \brief header du fichier de Ouvrage.cpp
+ * \date 10 avril mon ami
+ */
 
 #ifndef OUVRAGE_H_
 #define OUVRAGE_H_
@@ -14,6 +19,9 @@
 #include "classe_reference.h"
 
 namespace biblio{
+/**
+* \brief définition de la classe Ouvrage qui hérite publiquement de la classe reference
+*/
 class Ouvrage: public virtual reference
 {
 private:

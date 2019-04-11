@@ -25,7 +25,9 @@ namespace util
 
 namespace biblio {
 
-
+/**
+ * \brief définition de la classe virtuelle pure reference
+ */
 class reference
 {
 public:
@@ -41,11 +43,12 @@ public:
     std::string reqIdentifiant() const;
     virtual ~reference();
     virtual reference* clone() const=0;
+    void asgAuteurs(const std::string& p_auteurs);
 protected:
    int m_annee;
-   const std::string m_titre;
-   const std::string m_identifiant;
-   const std::string m_auteurs;
+   std::string m_titre;
+   std::string m_identifiant;
+   std::string m_auteurs;
    void verifieInvariant() const;
 };
 }

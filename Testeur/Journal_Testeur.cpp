@@ -12,10 +12,15 @@
 using namespace biblio;
 
 /**
- *
- * \brief test du constructeur avec paramètres avant la création du fixture
+ * \brief test de la construction d'une instance de la classe Journal
+ * Cas valide:
+ * ConstructeurAvecParams: construction avec paramètres valides qui respectent les fonctions dans le namespace util
+ * Cas invalides:
+ * NomInvalide: nom vide, utilisation de caractères autres que l'ascii, utilisation de chiffres
+ * VolumeInvalide: volume négatif
+ * NumeroInvalide: numero négatif
+ * PageInvalide: page négative
  */
-
 TEST(Journal, constructeurAvecParams){
 	Journal journal_a_tester(2009, "titre", "auteurs", "ISSN 1937-4771", "nom", 20, 1, 17);
 	EXPECT_EQ(2009, journal_a_tester.reqAnnee());
@@ -31,6 +36,8 @@ TEST(Journal, constructeurAvecParams){
 TEST(Journal, nomInvalide){
 
 	ASSERT_THROW(Journal journal_a_tester(2009, "titre", "auteurs", "ISSN 1937-4771", "", 20, 1, 17);,
+	PreconditionException);
+	ASSERT_THROW(Journal journal_a_tester(2009, "titre", "auteurs", "ISSN 1937-4771", "boi &&123", 20, 1, 17);,
 	PreconditionException);
 }
 
@@ -53,7 +60,8 @@ TEST(Journal, PageInvalide){
 }
 
 /**
- *\brief fixture pour tester l'ensemble des méthodes
+ * \class JournalTesteur : public ::testing::Test
+ * \brief création de 2 journaux pour tester l'ensemble des méthodes de la classe
  */
 
 class JournalTesteur: public ::testing::Test
@@ -65,29 +73,58 @@ public:
 	Journal t_journal2;
 };
 
+/**
+ * \brief test de la methode clone. On suppose que si la reference est affichee de manière identique,
+ * on aura cree une copie avec succès
+ */
+
 TEST_F(JournalTesteur, clone){
 	reference* journal_clone = t_journal2.clone();
 	EXPECT_EQ(t_journal2.reqReferenceFormate(), journal_clone->reqReferenceFormate());
 }
 
+/**
+ * \brief test de la méthode reqNom
+ * cas valide: le nom utilisé lors de la construction de l'objet correspond à la valeur retournée par le getter
+ * cas invalide: le nom utilisé lors de la construction de l'objet ne correspond pas à la valeur retournée par le getter
+ */
+
 TEST_F(JournalTesteur, reqNom){
 	EXPECT_EQ("direct", t_journal.reqNom());
 }
+
+/**
+ * \brief test de la méthode reqVolume
+ * cas valide: le volume utilisé lors de la construction de l'objet correspond à la valeur retournée par le getter
+ * cas invalide: le volume utilisé lors de la construction de l'objet ne correspond pas à la valeur retournée par le getter
+ */
 
 TEST_F(JournalTesteur, reqVolume){
 	EXPECT_EQ(10, t_journal.reqVolume());
 }
 
+/**
+ * \brief test de la méthode reqNumero
+ * cas valide: le numero utilisé lors de la construction de l'objet correspond à la valeur retournée par le getter
+ * cas invalide: le numero utilisé lors de la construction de l'objet ne correspond pas à la valeur retournée par le getter
+ */
+
 TEST_F(JournalTesteur, reqNumero){
 	EXPECT_EQ(6, t_journal.reqNumero());
 }
+
+/**
+ * \brief test de la méthode reqPage
+ * cas valide: la page utilisée lors de la construction de l'objet correspond à la valeur retournée par le getter
+ * cas invalide: la page utilisée lors de la construction de l'objet ne correspond pas à la valeur retournée par le getter
+ */
 
 TEST_F(JournalTesteur, reqPage){
 	EXPECT_EQ(17, t_journal.reqPage());
 }
 
 /**
- *\brief on suppose que si la reference formatee est identique, on aura fait une copie avec succès
+ *\brief test de reqReferenceFormate, on suppose que si la reference formatee est identique, on aura fait une copie avec succès
  */
 
 TEST_F(JournalTesteur, reqReferenceFormate){

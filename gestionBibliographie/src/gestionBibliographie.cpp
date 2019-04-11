@@ -216,6 +216,12 @@ Journal BoucleCreationJournal(){
 
 int main() {
 	Bibliographie biblio("Utilisation");
+	//Ouvrage ouvrage(1999,"Fundamentals of Speaker Recognition", "Benjie",  "ISBN 978-3-16-148410-0", "hey", "Springer");
+	//biblio.ajouterReference(ouvrage);
+	//cout<<biblio.reqBibliographieFormate();
+	//biblio.~Bibliographie();
+	//cout<<"direct"<<endl;
+	//cout<<biblio.reqBibliographieFormate();
 	cout<<"création de la première référence (Ouvrage)"<<endl;
 	biblio.ajouterReference(BoucleCreationOuvrage());
 	cout<<"création de la deuxième référence (Ouvrage)"<<endl;

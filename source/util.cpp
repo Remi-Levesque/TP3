@@ -14,13 +14,14 @@ using namespace std;
 
 
 /**
- * namespace util
+ * \namespace util
  */
 
 namespace util
 {
 	/**
-	 *
+	 *\fn verifieNom()
+	 *\brief vérifie la validité d'un nom entré par l'utilisateur
 	 */
     bool NOM(const std::string& p_nom){
         int length = int(p_nom.length());
@@ -38,7 +39,10 @@ namespace util
         }
         return false;
     }
-
+    /**
+     *\fn verifieISSN()
+     *\brief vérifie la validité d'un identifiant ISSN entré par l'utilisateur
+     */
     bool ISSN(const std::string& p_issn){
         int check = 0;
         int somme = 0;
@@ -89,7 +93,10 @@ namespace util
         }
         return false;
     }
-
+    /**
+     *\fn verifieISBN()
+     *\brief vérifie la validité d'un identifiant ISBN entré par l'utilisateur
+     */
     bool ISBN(const std::string& p_isbn){
         // ISBN-10;
         int somme = 0;

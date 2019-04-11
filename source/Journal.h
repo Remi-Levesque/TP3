@@ -5,6 +5,7 @@
  *      Author: etudiant
  */
 
+
 #ifndef JOURNAL_H_
 #define JOURNAL_H_
 
@@ -16,12 +17,17 @@
 namespace biblio{
 class Journal: public virtual reference
 {
+/**
+ * \brief définition de la classe Journal qui hérite publiquement de la
+ * classe virtuelle pure reference
+ */
 private:
 	std::string m_nom;
 	int m_volume;
 	int m_numero;
 	int m_page;
 public:
+	void verifieInvariant() const;
 	std::string reqNom() const;
 	int reqVolume() const;
 	int reqPage() const;
